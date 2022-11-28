@@ -1,19 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-// import react native gesture handler
 import 'react-native-gesture-handler';
-// @ Components `Start` and `Chat` @ //
+
 import Start from './components/Start'
 import Chat from './components/Chat'
 
-// import react Navigation
+/**
+ * React Navigation
+ * https://reactnavigation.org/docs/getting-started
+ */
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
-// @ Create a Stack Navigator
 const Stack = createStackNavigator();
 
-
+/**
+ * @ App Component
+ * @ return JSX
+ * @ Stack Navigator
+ * @ Start and Chat Components
+ * @ Stack.Navigator
+ * @ Stack.Screen
+ * @ Start and Chat Components
+ */
 export default function App() {
 
   return (
