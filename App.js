@@ -1,16 +1,16 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 import 'react-native-gesture-handler';
 
 import Start from './components/Start'
 import Chat from './components/Chat'
 
+
 /**
  * React Navigation
  * https://reactnavigation.org/docs/getting-started
  */
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import React from 'react';
 
 const Stack = createStackNavigator();
 
