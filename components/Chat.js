@@ -253,7 +253,7 @@ export default class Chat extends React.Component {
                 {...props}
                 wrapperStyle={{
                     left: {
-                        backgroundColor: "#3d405b",
+                        backgroundColor: "#e1e1",
                     },
                     right: {
                         backgroundColor: "#00af80",
@@ -292,10 +292,10 @@ export default class Chat extends React.Component {
     }
 
     render() {
-        const { textColor: textColor, backgroundColor: backgroundColor } = this.props.route.params;
+        const { backgroundColor: backgroundColor } = this.props.route.params;
 
         return (
-            <View style={{ flex: 1, backgroundColor: backgroundColor, textColor: textColor }}>
+            <View style={{ flex: 1, backgroundColor: backgroundColor}}>
                 <GiftedChat
                     bottomOffset={getBottomSpace()}
                     renderBubble={this.renderBubble.bind(this)}
