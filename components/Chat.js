@@ -223,19 +223,15 @@ export default class Chat extends React.Component {
             this.deleteMessages();
         });
     }
-
+/**
+ * @function renderInputToolbar
+ * @description - renders the input toolbar if the user is online
+ */
     renderInputToolbar(props) {
-        if (this.state.isConnected == false) {
-        } else {
-            return (
-                <InputToolbar
-                    {...props}
-                />
-            );
+        if (this.state.isConnected) {
+            return <InputToolbar {...props} />;
         }
     }
-
-
 
     /**
      * @function componentWillUnmount
