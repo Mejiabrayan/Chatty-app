@@ -223,15 +223,17 @@ export default class Chat extends React.Component {
             this.deleteMessages();
         });
     }
-/**
- * @function renderInputToolbar
- * @description - renders the input toolbar if the user is online
- */
-    renderInputToolbar(props) {
-        if (this.state.isConnected) {
-            return <InputToolbar {...props} />;
+    /**
+     * @function renderInputToolbar
+     * @description - renders the input toolbar if the user is online
+     */
+    
+     renderInputToolbar(props) {
+        if (this.state.isConnected === false) {
+        } else {
+          return <InputToolbar {...props} />;
         }
-    }
+      }
 
     /**
      * @function componentWillUnmount
@@ -302,8 +304,8 @@ export default class Chat extends React.Component {
                     isConnected={this.state.isConnected}
                     onSend={(messages) => this.onSend(messages)}
                     user={{
-                        _id: 1,
-                        avatar: this.state.user.avatar,
+                        _id: this.state.uid,
+                        avatar: "https://placeimg.com/140/140/any",
 
                     }}
                     renderActions={this.renderCustomActions}
