@@ -88,7 +88,10 @@ export default class Chat extends React.Component {
             console.log(error.message);
         }
     }
-
+/**
+ * @function componentDidMount
+ * @description - gets the user id and name from the firebase database
+ */
     componentDidMount() {
         let name = this.props.route.params.name;
         this.props.navigation.setOptions({ title: name });
@@ -125,6 +128,10 @@ export default class Chat extends React.Component {
         });
     }
 
+    /**
+     * @function onSend 
+     * @description - sends the message to the firebase database
+     */
     onSend(messages = []) {
         this.setState(
             (previousState) => ({
@@ -160,7 +167,11 @@ export default class Chat extends React.Component {
         }
     }
 
-    //Get the data
+/**
+ * @name renderBubble
+ * @description renders the bubble component
+ * @param {object} props - props
+ */
     onCollectionUpdate = (querySnapshot) => {
         if (!this.state.isConnected) return;
         const messages = [];
@@ -185,6 +196,20 @@ export default class Chat extends React.Component {
             messages,
         });
     };
+
+    /**
+     * @name addMessage
+     * @description adds messages to the firebase database
+     * @param {object} message - message object
+     * @param {string} message._id - message id
+     * @param {string} message.text - message text
+     * @param {string} message.createdAt - message createdAt
+     * @param {object} message.user - message user
+     * @param {string} message.user._id - message user id
+     * @param {string} message.user.name - message user name
+     * @param {string} message.image - message image
+     * @param {string} message.location - message location
+     */ 
 
     addMessage(message) {
         this.referenceChatMessages.add({
@@ -215,7 +240,11 @@ export default class Chat extends React.Component {
         }
     }
 
-    //Bubble customization
+   /**
+    * @function renderBubble
+    * @description - renders the bubble with the background color
+    * @param {object} props - props
+    */
     renderBubble(props) {
         return (
             <Bubble
@@ -232,11 +261,19 @@ export default class Chat extends React.Component {
         );
     }
 
-
+    /**
+     * @function renderCustomActions
+     * @description - renders the custom actions
+     */
     renderCustomActions = (props) => {
         return <CustomActions {...props} />;
     };
 
+    /**
+     * @function renderCustomView
+     * @description - renders the custom view
+     * @param {object} props - props
+     */
     renderCustomView(props) {
         const { currentMessage } = props;
         if (currentMessage.location) {
@@ -261,11 +298,11 @@ export default class Chat extends React.Component {
     }
 
     render() {
-        const { backgroundColor: backgroundColor } = this.props.route.params;
 
+        let color = this.props.route.params.color;
         return (
             <ActionSheetProvider>
-                <View style={{ flex: 1, backgroundColor: backgroundColor }}>
+                <View style={{ flex: 1, backgroundColor: color }}>
                     <GiftedChat
                         bottomOffset={getBottomSpace()}
                         renderBubble={this.renderBubble.bind(this)}
